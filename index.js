@@ -45,9 +45,9 @@ function displayItems(items) {
     labelPage.forEach((label) => {
       labelHtml += `
       <div class="label">
-        <div class="title">${label["Name"]}</div>
-        <div class="bin">${label["Bin Number"]}</div>
-        <div class="description">${label["Description"]}</div>
+        <div class="title">${label.name}</div>
+        <div class="bin">${label.bin}</div>
+        <div class="description">${label.description}</div>
       </div>
       `;
     });
