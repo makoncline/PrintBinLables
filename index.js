@@ -40,7 +40,7 @@ function displayItems(items) {
   }
   const pageContainer = document.querySelector("#page-container");
   pageContainer.innerHTML = "";
-  labelPages.slice(0, 1).forEach((labelPage) => {
+  labelPages.forEach((labelPage) => {
     let labelHtml = "";
     labelPage.forEach((label) => {
       labelHtml += `
