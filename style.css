@@ -1,0 +1,78 @@
+:root {
+  --margin-left: 0.36in;
+  --margin-right: 0.31in;
+  --margin-top: 0.63in;
+  --margin-bottom: 0.57in;
+  --gap-side: 0.5in;
+  --gap-top: 0.25in;
+  --label-width: 2.25in;
+  --label-height: 0.75in;
+  font-family: 'Open Sans', sans-serif;
+}
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.page {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: var(--margin-left) calc((3 * var(--label-width)) + (2 * var(--gap-side))) var(--margin-right);
+  grid-template-rows: var(--margin-top) auto var(--margin-bottom);
+  page-break-before : always;
+  page-break-inside : avoid;
+  /* background-size: 0.1in 0.1in;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.5)  1px, transparent 1px); */
+}
+.grid {
+  grid-area: 2 / 2 / span 1 / span 1;
+  display: grid;
+  grid-template-columns: repeat(3, var(--label-width));
+  grid-template-rows: repeat(3, var(--label-height));
+  gap: var(--gap-top) var(--gap-side);
+}
+.label {
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, .2);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr 2fr;
+  overflow: hidden;
+  font-size: 10px;
+  width: var(--label-width);
+  height: var(--label-height);
+}
+.label * {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.title {
+  font-size: 12px;
+}
+.bin {
+  text-align: right;
+}
+.description {
+  white-space: unset;
+  grid-area: 2 / 1 / span 1 / span 2;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+@media print {
+  input {
+    display: none;
+  }
+  @page { 
+    width: 100%; 
+    margin: 0; 
+    float: none;
+  }
+}
