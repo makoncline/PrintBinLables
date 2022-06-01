@@ -10,7 +10,7 @@ function handleSelectFile(e) {
   }
   var fr = new FileReader();
   fr.onload = function () {
-    const items = processData(fr.result);
+    const items = Papa.parse(fr.result, { header: true }).data;
     displayItems(items);
   };
   fr.readAsText(files[0]);
